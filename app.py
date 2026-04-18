@@ -4,11 +4,16 @@ from src.logger import logging
 from difflib import get_close_matches
 from src.image_fetcher import get_product_image
 import os
+
+
 app = Flask(__name__)
 
 
 logging.info("Loading dataset...")
-df = load_and_prepare_data("data/Online_Retail.xlsx")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(BASE_DIR, "data", "Online_Retail.xlsx")
+
+df = load_and_prepare_data(file_path)
 similarity_df = create_similarity_matrix(df)
 logging.info("Data loaded successfully")
 
