@@ -7,4 +7,5 @@ flask
 openpyxl
 google-search-results
 python-dotenv
+gunicorn
 # -e .
