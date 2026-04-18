@@ -3,7 +3,7 @@ from src.recommendation import load_and_prepare_data, create_similarity_matrix, 
 from src.logger import logging
 from difflib import get_close_matches
 from src.image_fetcher import get_product_image
-
+import os
 app = Flask(__name__)
 
 
@@ -91,4 +91,5 @@ def search_suggestions():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    if os.getenv("ENV") == "dev":
+        app.run(host="0.0.0.0", port=5000)
