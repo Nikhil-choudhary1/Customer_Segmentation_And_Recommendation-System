@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 logging.info("Loading dataset...")
-file_path = os.path.join(os.getcwd(), "data", "Online_Retail.xlsx")
+file_path = os.path.join(os.getcwd(), "data", "Online_Retail.csv")
 
 df = None
 similarity_df = None
