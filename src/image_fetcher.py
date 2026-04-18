@@ -1,11 +1,15 @@
 from serpapi import GoogleSearch
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_product_image(product_name):
     try:
         params = {
             "q": product_name,
             "tbm": "isch",
-            "api_key": "9ec82ad426e779a93273873886e4ca1046d36ceea7147bd552c53a7063f0fe30"
+            "api_key": os.getenv("SERP_API_KEY")
         }
 
         search = GoogleSearch(params)

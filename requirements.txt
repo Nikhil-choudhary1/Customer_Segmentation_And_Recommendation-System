@@ -4,4 +4,7 @@ scikit-learn
 matplotlib
 seaborn
 flask
+openpyxl
+google-search-results
+python-dotenv
 # -e .
