@@ -4,6 +4,8 @@ from src.logger import logging
 from difflib import get_close_matches
 from src.image_fetcher import get_product_image
 import os
+import sys
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
 
 app = Flask(__name__)
