@@ -91,5 +91,4 @@ def search_suggestions():
 
 
 if __name__ == "__main__":
-    if os.getenv("ENV") == "dev":
-        app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=5000)   
