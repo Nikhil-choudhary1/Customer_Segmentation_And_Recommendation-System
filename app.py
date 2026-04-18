@@ -17,15 +17,12 @@ file_path = os.path.join(os.getcwd(), "data", "Online_Retail.csv")
 df = None
 similarity_df = None
 
+logging.info("Loading dataset ONCE...")
 
-def load_data():
-    global df, similarity_df
-    if df is None:
-        logging.info(" Loading dataset...")
-        df = load_and_prepare_data(file_path)
-        similarity_df = create_similarity_matrix(df)
-        logging.info("Data loaded successfully")
+df = load_and_prepare_data(file_path)
+similarity_df = create_similarity_matrix(df)
 
+logging.info("Data loaded successfully")
 
 @app.route('/')
 def home():
@@ -35,7 +32,6 @@ def home():
 
 @app.route('/recommendation', methods=['POST'])
 def recommend_ui():
-    load_data()
     product = request.form.get('product')
 
     logging.info(f"User searched for product: {product}")
@@ -80,7 +76,7 @@ def recommend_ui():
 
 @app.route('/recommend', methods=['GET'])
 def recommend():
-    load_data()
+
     product = request.args.get('product')
 
     logging.info(f"API request for product: {product}")
@@ -95,7 +91,6 @@ def recommend():
 
 @app.route('/search_suggestions', methods=['GET'])
 def search_suggestions():
-    load_data()
     query = request.args.get('query', '')
 
     suggestions = [
