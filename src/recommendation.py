@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
 def load_and_prepare_data(file_path):
-    df = pd.read_excel(file_path)
+    df =  pd.read_csv(file_path)
 
     df = df.dropna(subset=['CustomerID'])
     df = df.dropna(subset=['Description'])
